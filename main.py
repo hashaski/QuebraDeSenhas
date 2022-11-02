@@ -64,6 +64,3 @@ gerar_combinacoes(palavras, 5)
 
 for combinacao in combinacoes:
     verificar(" ".join(combinacao))
-
-
-# okokokaokokaodkao
