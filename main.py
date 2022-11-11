@@ -20,7 +20,8 @@ def codificar_senha(senha):
 
 def gerar_combinacoes(lista, tamanho_max):
     """
-
+    Gera todas as combinações possíveis dos elementos da lista 'lista',
+    de tamanho 'tamanho_max' até 1.
     """
     global combinacoes
     combinacoes.extend(itertools.combinations_with_replacement(lista, tamanho_max))
@@ -31,7 +32,13 @@ def gerar_combinacoes(lista, tamanho_max):
 
 def verificar(combinacao):
     """
-    
+    Codifica a entrada 'combinacao' através da função 'codificar_senha'
+    e verifica se o resultado está contido no arquivo usuarios_senhascodificadas.txt.
+
+    Caso positivo, adiciona a combinação 'usuário:senha decodificada'
+    ao arquivo senhas_quebradas.txt.
+
+    Caso negativo, adiciona #WIP ao arquivo senhas_nao_quebradas.txt.
     """
     senha_codificada = codificar_senha(combinacao)
     for credencial in credenciais_codificadas:
@@ -47,8 +54,8 @@ def verificar(combinacao):
 
 palavras_file = open("palavras.txt", "r")
 credenciais_codificadas_file = open("usuarios_senhascodificadas.txt", "r")
-senhas_quebradas_file = open("senhas_quebradas.txt", "a")
-senhas_nao_quebradas_file = open("senhas_nao_quebradas.txt", "a")
+senhas_quebradas_file = open("senhas_quebradas.txt", "w")
+senhas_nao_quebradas_file = open("senhas_nao_quebradas.txt", "w")
 
 palavras = []
 for linha in palavras_file:
