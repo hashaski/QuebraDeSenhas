@@ -9,7 +9,7 @@ import hashlib, base64, itertools
 
 def codificar_senha(senha):
     """
-    
+    Codifica e retorna a string 'senha'.
     """
     senha_encoded = senha.encode('utf-8')
     digest = hashlib.sha512(senha_encoded).digest()
@@ -27,8 +27,8 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     combinacoes.extend(itertools.combinations_with_replacement(lista, tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
-    else:
-        return
+    #else:
+    #    return
 
 
 def verificar(combinacao):
@@ -46,9 +46,8 @@ def verificar(combinacao):
         if senha_codificada == credencial[1]:
             senhas_quebradas_file.write(f"{credencial[0]}:{combinacao}\n")
             credenciais_codificadas.remove(credencial)
-            return
-    #BURRO: senhas_nao_quebradas_file.write(senha_codificada)
-    return
+    #        return
+    #return
 
 #frase = input('# Digite as palavras da sua senha: ')
 #codificada = codificar_senha(frase)
