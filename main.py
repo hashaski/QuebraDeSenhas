@@ -1,4 +1,4 @@
-import hashlib, base64, itertools
+import hashlib, base64
 
 """
 - tirar o itertools e arranjar uma forma para gerar combinacoes manual
@@ -24,7 +24,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     de tamanhos 1 até 'tamanho_max', e as insere na lista global 'combinacoes'.
     """
 
-    def comb(lista, tamanho):
+    def gerar_combinacao(lista, tamanho):
         pool = tuple(lista)
         n = len(pool)
         if not n and tamanho:
@@ -41,7 +41,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
             yield tuple(pool[i] for i in indices)
 
     global combinacoes
-    combinacoes.extend(comb(lista, tamanho))
+    combinacoes.extend(gerar_combinacao(lista, tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
