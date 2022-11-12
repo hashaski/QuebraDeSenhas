@@ -9,8 +9,9 @@ import hashlib, base64
 
 def codificar_senha(senha):
     """
-    Codifica e retorna a string 'senha'.
+    Codifica a string 'senha' e retorna o resultado.
     """
+    
     senha_encoded = senha.encode('utf-8')
     digest = hashlib.sha512(senha_encoded).digest()
     digest_b64_encoded = base64.b64encode(digest)
@@ -27,8 +28,8 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     def gerar_combinacao(lista, tamanho):
         resultados = []
         base = tuple(lista)
-        if not len(base) and tamanho:
-            return
+        # if not len(base) and tamanho:
+        #     return
         indices = [0] * tamanho
         resultados.append(tuple(base[i] for i in indices))
         while True:
@@ -92,3 +93,8 @@ for combinacao in combinacoes:
 
 for credencial in credenciais_codificadas:
     senhas_nao_quebradas_file.write(f"{credencial[0]}:{credencial[1]}\n")
+
+palavras_file.close()
+credenciais_codificadas_file.close()
+senhas_quebradas_file.close()
+senhas_nao_quebradas_file.close()
