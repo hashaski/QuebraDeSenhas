@@ -25,20 +25,19 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     """
 
     def gerar_combinacao(lista, tamanho):
-        pool = tuple(lista)
-        n = len(pool)
-        if not n and tamanho:
+        base = tuple(lista)
+        if not len(base) and tamanho:
             return
         indices = [0] * tamanho
-        yield tuple(pool[i] for i in indices)
+        yield tuple(base[i] for i in indices)
         while True:
             for i in reversed(range(tamanho)):
-                if indices[i] != n - 1:
+                if indices[i] != len(base) - 1:
                     break
             else:
                 return
             indices[i:] = [indices[i] + 1] * (tamanho - i)
-            yield tuple(pool[i] for i in indices)
+            yield tuple(base[i] for i in indices)
 
     global combinacoes
     combinacoes.extend(gerar_combinacao(lista, tamanho))
