@@ -1,8 +1,8 @@
 import hashlib, base64
 
 """
-- tirar o itertools e arranjar uma forma para gerar combinacoes manual
 - tentar tirar o append, extend e join
+- entender a função gerar_combinacoes
 - tentar quebrar as senhas restantes com palavras novas
 - ver se em "senhas_nao_quebradas" é preciso ordem alfabética de usuário ou senha
 """
