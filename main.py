@@ -23,8 +23,25 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     Gera todas as combinações possíveis dos elementos da lista 'lista',
     de tamanhos 1 até 'tamanho_max', e as insere na lista global 'combinacoes'.
     """
+
+    def comb(lista, tamanho):
+        pool = tuple(lista)
+        n = len(pool)
+        if not n and tamanho:
+            return
+        indices = [0] * tamanho
+        yield tuple(pool[i] for i in indices)
+        while True:
+            for i in reversed(range(tamanho)):
+                if indices[i] != n - 1:
+                    break
+            else:
+                return
+            indices[i:] = [indices[i] + 1] * (tamanho - i)
+            yield tuple(pool[i] for i in indices)
+
     global combinacoes
-    combinacoes.extend(itertools.combinations_with_replacement(lista, tamanho))
+    combinacoes.extend(comb(lista, tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
