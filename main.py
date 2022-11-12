@@ -3,8 +3,8 @@ import hashlib, base64, itertools
 """
 - tirar o itertools e arranjar uma forma para gerar combinacoes manual
 - tentar tirar o append, extend e join
-- ordenar saída senhas_quebradas e senha_nao_quebradas
 - tentar quebrar as senhas restantes com palavras novas
+- ver se em "senhas_nao_quebradas" é preciso ordem alfabética de usuário ou senha
 """
 
 def codificar_senha(senha):
