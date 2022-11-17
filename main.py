@@ -2,7 +2,7 @@ import hashlib, base64, itertools
 
 """
 - tentar tirar o append, extend e join
-- entender a função gerar_combinacoes
+- tirar o itertools
 - tentar quebrar as senhas restantes com palavras novas
 - ver se em "senhas_nao_quebradas" é preciso ordem alfabética de usuário ou senha
 """
@@ -42,7 +42,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
             resultados.append(tuple(base[i] for i in indices))
 
     global combinacoes
-    combinacoes.extend(itertools.product(lista, tamanho))
+    combinacoes.extend(itertools.product(lista, repeat = tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
