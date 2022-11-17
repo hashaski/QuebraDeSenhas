@@ -1,8 +1,7 @@
-import hashlib, base64, itertools
+import hashlib, base64
 
 """
 - tentar tirar o append, extend e join
-- tirar o itertools
 - tentar quebrar as senhas restantes com palavras novas
 - ver se em "senhas_nao_quebradas" é preciso ordem alfabética de usuário ou senha
 """
@@ -25,8 +24,8 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     de tamanhos 1 até 'tamanho_max', e as insere na lista global 'combinacoes'.
     """
 
-    def gerar_combinacao(*args, tamanho = 1):
-        bases = [tuple(base) for base in args] * tamanho
+    def gerar_combinacao(*args, dimensao = 1):
+        bases = [tuple(base) for base in args] * dimensao
         resultado = [[]]
         saida = []
         for base in bases:
@@ -36,7 +35,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
         return saida
 
     global combinacoes
-    combinacoes.extend(itertools.product(lista, repeat = tamanho))
+    combinacoes.extend(gerar_combinacao(lista, dimensao = tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
