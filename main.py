@@ -25,21 +25,15 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     de tamanhos 1 até 'tamanho_max', e as insere na lista global 'combinacoes'.
     """
 
-    def gerar_combinacao(lista, tamanho):
-        resultados = []
-        base = tuple(lista)
-        # if not len(base) and tamanho:
-        #     return
-        indices = [0] * tamanho
-        resultados.append(tuple(base[i] for i in indices))
-        while True:
-            for i in reversed(range(tamanho)):
-                if indices[i] != len(base) - 1:
-                    break
-            else:
-                return resultados
-            indices[i:] = [indices[i] + 1] * (tamanho - i)
-            resultados.append(tuple(base[i] for i in indices))
+    def gerar_combinacao(*args, tamanho = 1):
+        bases = [tuple(base) for base in args] * tamanho
+        resultado = [[]]
+        saida = []
+        for base in bases:
+            resultado = [x+[y] for x in resultado for y in base]
+        for combinacao in resultado:
+            saida.append(tuple(combinacao))
+        return saida
 
     global combinacoes
     combinacoes.extend(itertools.product(lista, repeat = tamanho))
