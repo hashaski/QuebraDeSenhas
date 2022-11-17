@@ -1,4 +1,4 @@
-import hashlib, base64
+import hashlib, base64, itertools
 
 """
 - tentar tirar o append, extend e join
@@ -42,7 +42,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
             resultados.append(tuple(base[i] for i in indices))
 
     global combinacoes
-    combinacoes.extend(gerar_combinacao(lista, tamanho))
+    combinacoes.extend(itertools.product(lista, tamanho))
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
