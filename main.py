@@ -25,6 +25,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     """
 
     def gerar_combinacao(*args, dimensao = 1):
+        print(f"Gerando combinações de tamanho {dimensao}...")
         bases = [tuple(base) for base in args] * dimensao
         resultado = [[]]
         saida = []
@@ -79,10 +80,19 @@ for linha in credenciais_codificadas_file:
 
 combinacoes = []
 
-gerar_combinacoes(palavras, 5)
+gerar_combinacoes(palavras, 3)
 
+num_comb = 0
+print("\nVerificando combinações...\n")
 for combinacao in combinacoes:
+    num_comb += 1
+    print(f"Verificando combinação número {num_comb}", end = "\r")
     verificar(" ".join(combinacao))
+print(f"""{num_comb} combinações verificadas com sucesso.
+
+As senhas quebradas foram adicionadas ao arquivo senhas_quebradas.txt.\n""")
+
+print(f"{len(credenciais_codificadas)} senhas não foram quebradas.") if len(credenciais_codificadas) > 0 else print("Todas as senhas foram quebradas.")
 
 for credencial in credenciais_codificadas:
     senhas_nao_quebradas_file.write(f"{credencial[0]}:{credencial[1]}\n")
