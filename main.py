@@ -1,7 +1,7 @@
 import hashlib, base64
 
 """
-- tentar tirar o append, extend e join
+- tentar tirar o append e join
 - tentar quebrar as senhas restantes com palavras novas
 - ver se em "senhas_nao_quebradas" é preciso ordem alfabética de usuário ou senha
 """
@@ -35,7 +35,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
         return saida
 
     global combinacoes
-    combinacoes.extend(gerar_combinacao(lista, dimensao = tamanho))
+    combinacoes += gerar_combinacao(lista, dimensao = tamanho)
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
     #else:
