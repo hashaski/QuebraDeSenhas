@@ -39,9 +39,7 @@ def gerar_combinacoes(lista, tamanho_max, tamanho = 1):
     combinacoes += gerar_combinacao(lista, dimensao = tamanho)
     if tamanho < tamanho_max:
         gerar_combinacoes(lista, tamanho_max, tamanho + 1)
-    #else:
-    #    return
-
+        
 
 def verificar(combinacao):
     """
@@ -49,17 +47,13 @@ def verificar(combinacao):
     e verifica se o resultado está contido no arquivo usuarios_senhascodificadas.txt.
 
     Caso positivo, adiciona a combinação 'usuário:senha decodificada'
-    ao arquivo senhas_quebradas.txt.
-
-    Caso negativo, adiciona #WIP ao arquivo senhas_nao_quebradas.txt.
+    ao arquivo senhas_quebradas.txt e remove a credencial da lista 'credenciais_codificadas'.
     """
     senha_codificada = codificar_senha(combinacao)
     for credencial in credenciais_codificadas:
         if senha_codificada == credencial[1]:
             senhas_quebradas_file.write(f"{credencial[0]}:{combinacao}\n")
             credenciais_codificadas.remove(credencial)
-    #        return
-    #return
 
 #frase = input('# Digite as palavras da sua senha: ')
 #codificada = codificar_senha(frase)
@@ -80,15 +74,15 @@ for linha in credenciais_codificadas_file:
 
 combinacoes = []
 
-gerar_combinacoes(palavras, 3)
+gerar_combinacoes(palavras, 5)
 
-num_comb = 0
+comb_counter = 0
 print("\nVerificando combinações...\n")
 for combinacao in combinacoes:
-    num_comb += 1
-    print(f"Verificando combinação número {num_comb}", end = "\r")
+    comb_counter += 1
+    print(f"Verificando combinação {comb_counter} de {len(palavras)**5} ({comb_counter/len(palavras)**5 :.2f}%)", end = "\r")
     verificar(" ".join(combinacao))
-print(f"""{num_comb} combinações verificadas com sucesso.
+print(f"""{comb_counter} combinações verificadas com sucesso.
 
 As senhas quebradas foram adicionadas ao arquivo senhas_quebradas.txt.\n""")
 

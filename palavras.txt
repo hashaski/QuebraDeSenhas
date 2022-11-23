@@ -41,3 +41,5 @@ salmao
 tempura
 risoto
 strogonoff
+atum
+baunilha
