@@ -1,4 +1,22 @@
 orlando:chocolate
 paula:chocolate chocolate
 joel:pizza queijo
+ulisses:milk shake pistache
 reinaldo:queijo queijo queijo
+kramer:tomate pizza calabreza
+tatiana:pistache pistache baunilha baunilha
+vanessa:pizza atum calabreza baunilha
+leandro:sorvete pizza tomate chocolate
+silvia:torta suco torta amendoas
+irene:chocolate pimenta bife chocolate baunilha
+charles:milk shake pistache morango morango
+wesley:pizza pimenta alho atum atum
+mariana:pizza pizza chocolate queijo pimenta
+edna:sorvete bolo baunilha morango caramelo
+bob:sorvete sorvete chocolate amendoas flocos
+gabriela:sorvete torta sorvete chocolate morango
+henrique:suco morango chocolate milk palmito
+daniel:tempura sorvete banana caramelo caramelo
+ana:torta baunilha pimenta chocolate torta
+fabiana:torta palmito tomate bolo morango
+nivaldo:torta pizza sorvete amendoas pistache
