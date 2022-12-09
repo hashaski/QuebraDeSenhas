@@ -26,7 +26,6 @@ def ordenar(lista):
 def processar_combinacoes(lista, tamanho_max, tamanho = 1, comb_counter = 0):
     """
     Gera todas as combinações possíveis de tamanho 'tamanho' da lista 'lista' através da função 'gerar_combinacao'.
-
     Passa todas as combinações pela função 'verificar', e executa a função recursivamente até que 'tamanho' == 'tamanho_max' - 1,
     de modo que a última execução processe as combinações de tamanho 'tamanho_max'.
     
@@ -69,16 +68,15 @@ def processar_combinacoes(lista, tamanho_max, tamanho = 1, comb_counter = 0):
     
 
     for combinacao in gerar_combinacao(lista, dimensao = tamanho):
-        # Implementamos o contador abaixo, mas o removemos na entraga por conta da perda de desempenho:
-        #comb_counter += 1
-        #print(f"Verificando combinação {comb_counter} de {numero_combinacoes} ({(comb_counter/numero_combinacoes) * 100 :.2f}%)", end = "\r")
+        comb_counter += 1
+        print(f"Verificando combinação {comb_counter} de {numero_combinacoes} ({(comb_counter/numero_combinacoes) * 100 :.2f}%)", end = "\r")
         verificar_combinacao(" ".join(combinacao))
 
     if tamanho < tamanho_max:
         processar_combinacoes(lista, tamanho_max, tamanho + 1, comb_counter)
         return
     
-    print(f"""{numero_combinacoes} combinações foram verificadas com sucesso.    
+    print(f"""{comb_counter} combinações foram verificadas com sucesso.    
 As senhas quebradas foram adicionadas ao arquivo senhas_quebradas.txt.\n""")
         
     for credencial in credenciais_codificadas:
