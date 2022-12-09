@@ -1,5 +1,10 @@
 # QuebraDeSenhas
 
+> **Warning**
+> 
+> O código nesta branch inclui um contador que diminui consideravelmente a performance do programa, e está incluído apenas para propósitos ilustrativos.
+
+
 
 Código de quebra de senhas e comparação.
 
